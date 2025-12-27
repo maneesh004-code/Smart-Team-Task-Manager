@@ -7,32 +7,188 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>🚀 TeamFlow</h1>
-      <p>Streamlined Task Management for Small Teams</p>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="showPage('home')">🚀 TeamFlow</a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('services')">Services</a></li>
+        <li><a href="#" onclick="showPage('about')">About</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        <li><a href="#" class="nav-btn" onclick="showPage('login')">Login</a></li>
+        <li><a href="#" class="nav-btn" onclick="showPage('signup')">Sign Up</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Authentication Section -->
-    <div id="authSection" class="auth-section">
-      <div class="auth-forms">
-        <!-- Sign Up Form -->
-        <div class="form-group">
-          <h3>🔐 Sign Up</h3>
-          <form id="signupForm">
-            <div class="input-group">
+  <!-- Home Page -->
+  <div id="homePage" class="page">
+    <section class="hero">
+      <h1>Welcome to TeamFlow</h1>
+      <p>Streamlined Task Management for Small Teams</p>
+      <a href="#" class="hero-btn" onclick="showPage('signup')">Get Started Free</a>
+    </section>
+
+    <div class="container">
+      <h2 style="text-align: center; color: #667eea; margin-bottom: 40px;">Why Choose TeamFlow?</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Task Management</h3>
+          <p>Organize, prioritize, and track all your team's tasks in one place</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3>Team Collaboration</h3>
+          <p>Work together seamlessly with real-time updates and notifications</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>Progress Tracking</h3>
+          <p>Monitor project progress with intuitive dashboards and analytics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Page -->
+  <div id="servicesPage" class="page hidden">
+    <div class="container">
+      <h1 style="text-align: center; color: #667eea; margin-bottom: 40px;">Our Services</h1>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✅</div>
+          <h3>Task Creation & Assignment</h3>
+          <p>Create tasks with detailed descriptions, deadlines, and priorities. Assign them to team members instantly.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Status Management</h3>
+          <p>Track tasks through multiple stages: Pending, In Progress, and Completed with easy drag-and-drop.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📅</div>
+          <h3>Deadline Tracking</h3>
+          <p>Never miss a deadline with automatic reminders and color-coded priority indicators.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👤</div>
+          <h3>Team Management</h3>
+          <p>Add team members, assign roles, and manage permissions all in one place.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Analytics Dashboard</h3>
+          <p>Get insights into team productivity with real-time statistics and performance metrics.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔔</div>
+          <h3>Notifications</h3>
+          <p>Stay updated with instant notifications for task assignments, updates, and completions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Page -->
+  <div id="aboutPage" class="page hidden">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About TeamFlow</h2>
+          <p>TeamFlow is a modern task management solution designed specifically for small to medium-sized teams who need a simple yet powerful way to organize their work.</p>
+          <p>Our mission is to help teams collaborate more effectively by providing intuitive tools that make project management accessible to everyone, regardless of technical expertise.</p>
+          <ul class="about-features">
+            <li>Intuitive and user-friendly interface</li>
+            <li>Real-time collaboration features</li>
+            <li>Secure data encryption</li>
+            <li>Mobile-responsive design</li>
+            <li>Customizable workflows</li>
+            <li>24/7 customer support</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          🎯
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contactPage" class="page hidden">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Get In Touch</h2>
+        <form id="contactForm" onsubmit="handleContact(event)">
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" required>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <input type="text" id="contactSubject" required>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Page -->
+  <div id="loginPage" class="page hidden">
+    <div class="auth-section">
+      <div class="auth-container">
+        <div class="auth-card" style="max-width: 500px; margin: 0 auto;">
+          <h3>🔑 Login to Your Account</h3>
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required>
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+          </form>
+          <p style="text-align: center; margin-top: 1rem; color: #666;">
+            Don't have an account? <a href="#" onclick="showPage('signup')" style="color: #667eea; font-weight: 600;">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Page -->
+  <div id="signupPage" class="page hidden">
+    <div class="auth-section">
+      <div class="auth-container">
+        <div class="auth-card" style="max-width: 500px; margin: 0 auto;">
+          <h3>🔐 Create Your Account</h3>
+          <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
               <label for="signupName">Full Name</label>
               <input type="text" id="signupName" required>
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="signupEmail">Email</label>
               <input type="email" id="signupEmail" required>
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="signupPassword">Password</label>
               <input type="password" id="signupPassword" required>
             </div>
-            <div class="input-group">
+            <div class="form-group">
               <label for="signupRole">Role</label>
               <select id="signupRole" required>
                 <option value="">Select Role</option>
@@ -45,29 +201,17 @@
             </div>
             <button type="submit" class="btn">Create Account</button>
           </form>
-        </div>
-
-        <!-- Login Form -->
-        <div class="form-group">
-          <h3>🔑 Login</h3>
-          <form id="loginForm">
-            <div class="input-group">
-              <label for="loginEmail">Email</label>
-              <input type="email" id="loginEmail" required>
-            </div>
-            <div class="input-group">
-              <label for="loginPassword">Password</label>
-              <input type="password" id="loginPassword" required>
-            </div>
-            <button type="submit" class="btn">Sign In</button>
-          </form>
+          <p style="text-align: center; margin-top: 1rem; color: #666;">
+            Already have an account? <a href="#" onclick="showPage('login')" style="color: #667eea; font-weight: 600;">Login</a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Main Application -->
-    <div id="mainApp" class="main-app">
-      <!-- App Header -->
+  <!-- Main Application (After Login) -->
+  <div id="mainApp" class="main-app hidden">
+    <div class="app-container">
       <div class="app-header">
         <div class="user-info">
           <div id="userAvatar" class="avatar"></div>
@@ -76,10 +220,9 @@
             <div id="userRole" style="color: #666; font-size: 0.9rem;"></div>
           </div>
         </div>
-        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        <button class="btn btn-secondary" onclick="handleLogout()">Logout</button>
       </div>
 
-      <!-- Statistics Section -->
       <div class="stats-section">
         <div class="stat-card">
           <div id="totalTasks" class="stat-number">0</div>
@@ -99,74 +242,44 @@
         </div>
       </div>
 
-      <!-- Search & Sort -->
-      <div class="task-section">
-        <h2 class="section-title">🔍 Search & Sort</h2>
-        <input type="text" id="searchInput" placeholder="Search tasks..." class="search-bar">
-        <select id="sortTasks" class="sort-select">
-          <option value="none">Default</option>
-          <option value="deadline">Sort by Deadline</option>
-          <option value="priority">Sort by Priority</option>
-        </select>
-      </div>
-
-      <!-- Team Section -->
       <div class="task-section">
         <h2 class="section-title">👥 Team Members</h2>
-        <div class="team-section">
-          <div id="teamList" class="team-list"></div>
-        </div>
+        <div id="teamList" class="team-list"></div>
       </div>
 
-      <!-- Task Creation Section -->
       <div class="task-section">
         <h2 class="section-title">➕ Create New Task</h2>
-        <div class="task-form">
-          <form id="taskForm">
-            <div class="form-row">
-              <div class="form-col">
-                <div class="input-group">
-                  <label for="taskTitle">Task Title</label>
-                  <input type="text" id="taskTitle" required>
-                </div>
-              </div>
-              <div class="form-col">
-                <div class="input-group">
-                  <label for="taskAssignee">Assign To</label>
-                  <select id="taskAssignee" required>
-                    <option value="">Select Team Member</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-col">
-                <div class="input-group">
-                  <label for="taskDeadline">Deadline</label>
-                  <input type="date" id="taskDeadline" required>
-                </div>
-              </div>
-              <div class="form-col">
-                <div class="input-group">
-                  <label for="taskPriority">Priority</label>
-                  <select id="taskPriority" required>
-                    <option value="Low">Low</option>
-                    <option value="Medium" selected>Medium</option>
-                    <option value="High">High</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="input-group">
-              <label for="taskDescription">Description</label>
-              <textarea id="taskDescription" rows="3" placeholder="Task details and requirements..."></textarea>
-            </div>
-            <button type="submit" class="btn">Create Task</button>
-          </form>
-        </div>
+        <form id="taskForm" onsubmit="handleTaskCreate(event)">
+          <div class="form-group">
+            <label for="taskTitle">Task Title</label>
+            <input type="text" id="taskTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="taskAssignee">Assign To</label>
+            <select id="taskAssignee" required>
+              <option value="">Select Team Member</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskDeadline">Deadline</label>
+            <input type="date" id="taskDeadline" required>
+          </div>
+          <div class="form-group">
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority" required>
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn">Create Task</button>
+        </form>
       </div>
 
-      <!-- Tasks Display Section -->
       <div class="task-section">
         <h2 class="section-title">📋 Task Board</h2>
         <div class="tasks-grid">
@@ -187,7 +300,12 @@
     </div>
   </div>
 
-  <!-- Notifications Container -->
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 TeamFlow. All rights reserved.</p>
+  </footer>
+
+  <!-- Notifications -->
   <div id="notifications" class="notifications"></div>
 
   <script src="script.js"></script>
